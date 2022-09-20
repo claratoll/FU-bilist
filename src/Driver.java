@@ -1,6 +1,5 @@
 public class Driver {
 
-
     String driver;
     int age;
 
@@ -9,9 +8,10 @@ public class Driver {
         return driver;
     }
 
-    public void setDriver(String driver, int age) {
-        this.driver = driver;
 
+    public void setDriver(String driver, int age) {
+        Vehicle.checkAge(driver, age);
+        this.driver = driver;
     }
 
 
@@ -19,11 +19,9 @@ public class Driver {
         return age;
     }
 
+
     public Driver(String driver, int age) {
         this.driver = driver;
         this.age = age;
     }
-
-
-
 }
