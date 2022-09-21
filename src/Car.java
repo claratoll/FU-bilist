@@ -1,21 +1,22 @@
 public class Car extends Vehicle{
 
-    String car;
     int carAge = 18;
     int milesDriven = 10;
     int milesToGo = 100;
+    boolean letsGo = false;
 
-    public Car(String car) {
-        this.car = car;
-    }
+   /* public int getCarAge() {
+        return carAge;
+    }*/
 
     public Car() {
         System.out.println("Car created. 100 miles to go!");
+
     }
 
     private boolean checkAge(String name, int age){
         if (age < carAge){
-            System.out.println("driver not changed! " + name + " is " + age + ", but you must be 18 or older to drive a car");
+            System.out.println("Driver not changed! " + name + " is " + age + ", but you must be 18 or older to drive a car");
         }else {
             return true;
         }
@@ -24,18 +25,21 @@ public class Car extends Vehicle{
 
     @Override
     public void setDriver(Driver driver) {
-        if (checkAge(driver.driver, driver.age) == true) {
+        if (checkAge(driver.driver, driver.age)) {
             this.driver = driver;
+            System.out.println("Driver changed to: " + driver.driver);
+            letsGo = true;
         }
     }
 
     @Override
     public void drive() {
-        if (vehicle == this.vehicle/* get driver*/) {
-            System.out.println(vehicle + " drove " + milesDriven + " miles - " + milesToGo + " to go!");
-        } else {
+        if (!letsGo) {
+            System.out.println("Car didn't drive - there's no driver");
             //if there is no driver assigned to the vehicle
-            System.out.println(vehicle + " didn't drive - there's no driver");
+        } else {
+            milesToGo = milesToGo - milesDriven;
+            System.out.println("Car drove " + milesDriven + " miles - " + milesToGo + " to go!");
         }
     }
 }
