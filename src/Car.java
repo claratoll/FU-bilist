@@ -5,9 +5,6 @@ public class Car extends Vehicle{
     int milesToGo = 100;
     boolean letsGo = false;
 
-   /* public int getCarAge() {
-        return carAge;
-    }*/
 
     public Car() {
         System.out.println("Car created. 100 miles to go!");
